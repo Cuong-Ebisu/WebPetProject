@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('../mongoose');
 
 const dogSellerSchema = new mongoose.Schema({
   sellerID: {
@@ -27,4 +27,4 @@ const dogSellerSchema = new mongoose.Schema({
   timestamps: true // Tự động thêm createdAt và updatedAt
 });
 
-export default dogSellerSchema;
+module.exports = dogSellerSchema;

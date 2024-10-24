@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('../mongoose');
 
 const orderItemSchema = new mongoose.Schema({
   orderItemID: { type: Number, required: true, unique: true },
@@ -10,4 +10,4 @@ const orderItemSchema = new mongoose.Schema({
   quantity: { type: Number, required: true }
 });
 
-export default orderItemSchema;
+module.exports = orderItemSchema;

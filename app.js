@@ -1,17 +1,23 @@
 import express from 'express';
-import mongoose from './mongoose.js'; // Đảm bảo mongoose được cấu hình đúng
+import mongoose from 'mongoose';
+import {trainerRoute} from './routes/trainerRoute.js'; 
+import {spaRoute} from "./routes/spaRoute.js";
 import bodyParser from 'body-parser';
-import userRouter from './routes/user.js'; // Import user routes
-import { verifyEmail } from './controllers/userController.js';
-import { registerValidation } from './validators/userValidator.js';
+import {register,verifyEmail} from './controllers/userController.js';
+import {router} from "./routes/user.js";
+import { registerValidation } from './validators/userValidator.js'; 
+
 
 const app = express();
 
 // Middleware
 app.use(bodyParser.json());
+app.use(express.json());//middleware cho phép sử dụng json trong req.body 
 
+spaRoute(app);
+trainerRoute(app);
 // Router cho chức năng đăng ký
-app.use('/users', registerValidation, userRouter); // Định nghĩa route cho người dùng
+app.use('/users', registerValidation, router);  // Định nghĩa route cho người dùng
 
 // Route cho chức năng xác thực email
 app.get('/verify-email', verifyEmail);

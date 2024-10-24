@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('../mongoose');
 
 const reviewSchema = new mongoose.Schema({
   reviewID: {
@@ -30,4 +30,4 @@ const reviewSchema = new mongoose.Schema({
   timestamps: true // Tự động thêm createdAt và updatedAt
 });
 
-export default reviewSchema;
+module.exports = reviewSchema;

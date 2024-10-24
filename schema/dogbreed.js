@@ -1,5 +1,5 @@
 // schema.js
-import mongoose from 'mongoose';
+const mongoose = require('../mongoose');
 
 const dogBreedSchema = new mongoose.Schema({
     image: { type: String, required: true },
@@ -44,4 +44,4 @@ const dogBreedSchema = new mongoose.Schema({
     history: { type: String, required: true }
 });
 
-export default dogBreedSchema;
+module.exports = dogBreedSchema;

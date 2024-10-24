@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('../mongoose');
 
 const cartItemSchema = new mongoose.Schema({
   itemID: { type: Number, required: true, unique: true },
@@ -10,4 +10,4 @@ const cartItemSchema = new mongoose.Schema({
   quantity: { type: Number, required: true }
 });
 
-export default cartItemSchema;
+module.exports = cartItemSchema;

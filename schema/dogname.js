@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('../mongoose');
 
 const dogNameSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -6,4 +6,4 @@ const dogNameSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now }
 });
 
-export default dogNameSchema;
+module.exports = dogNameSchema;

@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('../mongoose');
 
 const postSchema = new mongoose.Schema({
   postID: { type: Number, required: true, unique: true },
@@ -9,4 +9,4 @@ const postSchema = new mongoose.Schema({
   image: { type: String }
 });
 
-export default postSchema;
+module.exports = postSchema;

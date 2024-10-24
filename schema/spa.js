@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const spaSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -16,4 +16,4 @@ const spaSchema = new mongoose.Schema({
   }
 });
 
-export default spaSchema;
+export { spaSchema };

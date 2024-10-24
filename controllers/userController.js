@@ -1,7 +1,7 @@
 import { validationResult } from 'express-validator';
 import jwt from 'jsonwebtoken';
-import User from '../models/user.js';
-import { registerUser } from '../services/userService.js';
+import User from '../models/user.js'; // Đừng quên thêm .js nếu dùng ES Module
+import {registerUser} from '../services/userService.js'; // Đừng quên thêm .js
 
 export const register = async (req, res) => {
   // Kiểm tra lỗi từ validator
@@ -14,10 +14,7 @@ export const register = async (req, res) => {
   try {
     const { email, firstName, lastName, password, role } = req.body;
     const newUser = await registerUser(email, firstName, lastName, password, role);
-    res.status(201).json({ 
-      message: 'Email xác thực đã được gửi đến bạn, kèm theo một liên kết để xác thực tài khoản.', 
-      user: newUser 
-    });
+    res.status(201).json({ message: 'Email xác thực đã được gửi đến bạn, kèm theo một liên kết để xác thực tài khoản.', user: newUser });
   } catch (error) {
     // Kiểm tra xem lỗi có phải là do email đã tồn tại hay không
     if (error.message === 'Email đã tồn tại') {

@@ -1,9 +1,10 @@
 import jwt from 'jsonwebtoken';
 import nodemailer from 'nodemailer';
-import User from '../models/user.js';
+import User from '../models/user.js'; // Đừng quên thêm .js nếu dùng ES Module
 import bcrypt from 'bcrypt';
 
-export const registerUser = async (email, firstName, lastName, password, role = 'customer') => {
+// Hàm đăng ký người dùng
+const registerUser = async (email, firstName, lastName, password, role = 'customer') => {
   // Kiểm tra xem email đã được đăng ký chưa
   const existingUser = await User.findOne({ email });
   if (existingUser) {
@@ -36,6 +37,7 @@ export const registerUser = async (email, firstName, lastName, password, role = 
   return newUser;
 };
 
+// Hàm gửi email xác thực (cần cấu hình thực tế)
 const sendVerificationEmail = async (userEmail, token) => {
   const verificationLink = `${process.env.BASE_URL}/users/verify-email?token=${token}`;
 
@@ -56,3 +58,4 @@ const sendVerificationEmail = async (userEmail, token) => {
 
   await transporter.sendMail(mailOptions);
 };
+export {registerUser}

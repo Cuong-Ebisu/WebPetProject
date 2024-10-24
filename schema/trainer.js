@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const trainerSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -16,4 +16,4 @@ const trainerSchema = new mongoose.Schema({
   }
 });
 
-export default trainerSchema;
+export{ trainerSchema }

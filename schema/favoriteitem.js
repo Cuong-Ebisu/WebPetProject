@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('../mongoose');
 
 const favoriteItemSchema = new mongoose.Schema({
   itemID: {
@@ -24,4 +24,4 @@ const favoriteItemSchema = new mongoose.Schema({
   timestamps: true // Tự động thêm createdAt và updatedAt
 });
 
-export default favoriteItemSchema;
+module.exports = favoriteItemSchema;
